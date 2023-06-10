@@ -15,9 +15,9 @@ import { useEffect, useState } from "react";
  }
 
 export default  function ProductDtl({product} : Iprop ) {
-  const { qty, decQty, incQty, onAdd } = useStateContext();
-
-
+  const { qty, decQty, incQty, onAdd, cartItems  , totalQuantities} = useStateContext();
+console.log(cartItems)
+console.log(totalQuantities)
   console.log(product);
 
 
@@ -57,9 +57,9 @@ export default  function ProductDtl({product} : Iprop ) {
               </span>
             </div>
             <span
-              // onClick={() => {
-              //   onAdd(product[0]);
-              // }}
+              onClick={() => {
+                onAdd(product , qty);
+              }}
               className="btn btn-outline-cmdark px-4 py-2 "
             >
               ADD TO CART
