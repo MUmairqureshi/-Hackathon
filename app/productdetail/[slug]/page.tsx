@@ -1,4 +1,3 @@
-// "use client";
 
 import { client } from "../../../sanity/lib/client";
 import { IProduct } from "../../components/type";
