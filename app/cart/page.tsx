@@ -1,5 +1,5 @@
 "use client";
-import { useRef } from "react";
+import { useRef ,useEffect} from "react";
 import Link from "next/link";
 import {
   AiOutlineMinus,
@@ -12,7 +12,8 @@ import { urlForImage } from "../../sanity/lib/image";
 import Image from "next/image";
  import { Icart } from '../components/type'
 import { useStateContext } from "../components/contextapi/useContext"; // context
- 
+import { loadStripe } from '@stripe/stripe-js';
+import {stripePromise} from '../../sanity/lib/strip'
 
 export default function Cart() {
   const {
@@ -25,8 +26,27 @@ export default function Cart() {
   } = useStateContext();
 console.log(cartItems)
 console.log(totalQuantities)
- 
+ const handleCheckout = async () =>{
+    const stripe = await stripePromise()
+    const response = await fetch('/api/stripe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(cartItems),
+      })
+useEffect(() => {
+    // Check to see if this is a redirect back from Checkout
+    const query = new URLSearchParams(window.location.search);
+    if (query.get('success')) {
+      console.log('Order placed! You will receive an email confirmation.');
+    }
 
+    if (query.get('canceled')) {
+      console.log('Order canceled -- continue to shop around and checkout when you’re ready.');
+    }
+  }, []);
+}
 
   return (
     <div className="des">
@@ -106,9 +126,9 @@ console.log(totalQuantities)
                 </div>
               </div>
 
-              <Link href="/contact" className="btn btn-dark ms-2 px-3 py-2 ">
+              <span  onClick={handleCheckout} className="btn btn-dark ms-2 px-3 py-2 ">
                 CHECKOUT
-              </Link>
+              </span>
             </div>
 
             {/* </main> */}
@@ -119,3 +139,4 @@ console.log(totalQuantities)
 </div>
   );
 }
+
