@@ -1,76 +1,108 @@
 "use client";
 import {
   AiOutlineMinus,
+
   AiOutlinePlus,
 } from "react-icons/ai";
-import Link from "next/link";
-import { client } from "../../../sanity/lib/client";
+
 import { IProduct } from "../../components/type";
 import { urlForImage } from "../../../sanity/lib/image";
-import Image from "next/image";
+ 
+import { FiShoppingCart } from "react-icons/fi";
 import { useStateContext } from "../contextapi/useContext";
-import { useEffect, useState } from "react";
- type Iprop = {
-    product :IProduct
- }
-
-export default  function ProductDtl({product} : Iprop ) {
-  const { qty, decQty, incQty, onAdd, cartItems  , totalQuantities} = useStateContext();
-console.log(cartItems)
-console.log(totalQuantities)
-  console.log(product);
-
-
-
-   
+ 
+type Iprop = {
+  product: IProduct
+}
+export default function ProductDtl({ product }: Iprop) {
+  const { qty, decQty, incQty, onAdd } = useStateContext();
+ 
   return (
-    <div className="justify-center mx-auto">
-      <br />
+    <div className=" ">
 
-      <div className="flex g-0">
-        <div className="col-md-6">
-          <Image
-            alt="img"
-            width={60}
-            height={150}
-            src={urlForImage(product.images[0]).url()}
-            className="w-full h-full object-cover brightness-75 group-hover:brightness-100 duration-300 group-hover:scale-110"
+      <div className="xl:flex lg:flex xl:flex-row gap-x-4 mt-10">
+        <div className="flex  flex-row gap-x-2 ">
+          <img
+            src={urlForImage(product.images[0].asset).url()!}
+            alt={product.alt}
+             className="xl:w-24 lg:w-24 w-12  xl:h-24 lg:h-24 h-12 "
+          />
+
+
+
+          <img
+            className="w-[44vw]"
+            src={urlForImage(product.images[0]).url()!}
+            alt={product.alt}
           />
         </div>
-        <div className="des col-md-6 ">
-          <div className=" card-body">
-            <p className="h5 text-uppercase   text-black-50">
-              {product.title}
-            </p>
-            <h5 className="card-title display-5">{product.category}</h5>
+          <div className="xlg:ml-4  mt-16">
+          <p className="text-2xl font-  tra cking-wider  ">
+            {product.title}
+          </p>
+          <h1 className="text-xl font-semibold text-gray-800 opacity-40 sm:text-lg">
+            {product.category}
+          </h1>
 
-            <h3 className="card-text display-6  my-4">
-              Rs:{product.price}.00
-            </h3>
-            <div className="flex mb-18">
-              <span className="minus" onClick={decQty} >
-                <AiOutlineMinus />
-              </span>
-              <span className="num">{qty}</span>
-              <span className="plus"   onClick={incQty}>
-                <AiOutlinePlus />
-              </span>
+          <div className="mt-6">
+            <p className="font-semibold text-lg ">Select Sizes</p>
+            <div className="flex gap-x-6 items-center flex-wrap">
+              {product.sizes.map((item, index) => (
+                <div
+                  key={index}
+ 
+                >
+  
+                  <div
+                    id="size"
+
+                    className="block w-full p-2 border hover:bg-gray-100 hover:border-gray-100 rounded-full focus:outline-none focus:ring focus:border-blue-300"
+                  >
+
+                    <option key={item} value={item} >
+                      {item}
+                    </option>
+
+                  </div>
+                </div>
+              ))}
             </div>
-            <span
-              onClick={() => {
-                onAdd(product , qty);
-              }}
-              className="btn btn-outline-cmdark px-4 py-2 "
-            >
-              ADD TO CART
-            </span>
-            <Link href={""} className="btn btn-dark ms-2 px-3 py-2 ">
-              Go somewhere
-            </Link>
+          </div>
+
+          <div className="flex gap-x-6 mt-6 items-center flex-wrap">
+            <p className="text-lg font-semibold">Quantity : </p>
+            <div className="flex gap-x-5 items-center">
+              <button
+                className="w-12 h-12 flex items-center justify-center  bg-gray-200 shadow-2xl rounded-full cursor-pointer text-gray-800
+        text-xl
+        "
+                onClick={decQty}
+              >
+                <AiOutlineMinus/>
+
+              </button>
+              {qty}
+              <button
+                className="w-12 h-12 flex items-center justify-center  bg-gray-200 shadow-2xl rounded-full cursor-pointer text-gray-800
+        text-xl border-black
+        "onClick={incQty}
+              >
+                <AiOutlinePlus/>
+                
+              </button>
+            </div>
+          </div>
+          <div className="flex items-center gap-x-6 mt-6 flex-wrap">
+            <button className="space-x-2 flex bg-black text-white p-2  -lg" onClick={() => onAdd(product, qty)}>
+              <FiShoppingCart className="mr-2 mt-1" />
+              Add to Cart
+            </button>
+
+            <p className="text-3xl font-bold tracking-wider">${product.price}:00</p>
           </div>
         </div>
+
       </div>
-      <h1> </h1>
     </div>
   );
 }

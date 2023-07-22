@@ -1,4 +1,9 @@
+import Image from 'sanity'
 export interface IProduct {
+    alt: string;
+    on_sale: any;
+    quantity: any;
+    sale_price: any;
     category: "string";
     _id : string ,
 
@@ -8,12 +13,13 @@ export interface IProduct {
     
     } ,
     price : number,
-    images : array
+    images : Image[],
+    sizes: string[]
 }
 
 
 export interface Icart  {
-images : array,
+images : Image[],
 title : string,
 price : number,
 _id : string,

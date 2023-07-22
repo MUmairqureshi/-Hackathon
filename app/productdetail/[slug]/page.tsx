@@ -12,9 +12,13 @@ export default async function ProductDetail({params,}: {params: { slug: string }
   console.log(product);
    
   return (
-    <div className="w-full mx-auto">
+    <main className="   w-full ">
+      <div className="flex justify-center">
+      <section className="w-[1248px]  py-4 ">
 <ProductDtl product={product[0]} />
-  </div>
+</section>
+</div>
+    </main>
   );
 }
 
@@ -43,6 +47,7 @@ export const getData = async (params: string) => {
         slug ,
         price ,
         images, 
+        sizes
     }
   `;
   const product = await client.fetch(query);

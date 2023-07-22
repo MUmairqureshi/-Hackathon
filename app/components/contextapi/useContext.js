@@ -40,9 +40,7 @@ console.log(qty)
 
       setCartItems([...cartItems, { ...product }])
     }
-
-    toast.success(`${qty} ${product.name} added to cart`)
-  }
+}
 
   const toggleCartItemQuantity = (id, value) => {
     const index = cartItems.findIndex((product) => product._id === id)
@@ -84,6 +82,8 @@ console.log(qty)
     setTotalQuantities(
       (prevTotalQuantities) => prevTotalQuantities - foundProduct.quantity
     )
+    
+
   }
 
   const incQty = () => {
