@@ -23,7 +23,7 @@ export default async function ProductDetail({params,}: {params: { slug: string }
 }
 
 
-export const generateStaticParams = async () => {
+ const generateStaticParams = async () => {
   const query = `*[_type == "product"]{
         _id,
         slug{
@@ -39,7 +39,7 @@ export const generateStaticParams = async () => {
 };
 
 
-export const getData = async (params: string) => {
+ const getData = async (params: string) => {
   const query = `*[_type == "product" && slug.current  == "${params}"]{
        _id,
         title ,

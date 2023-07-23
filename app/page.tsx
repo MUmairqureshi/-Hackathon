@@ -36,7 +36,7 @@ const slides = Array.from({ length: 1000 }).map(
 export default Home
 
 
-export const showproductlist = async() => {
+ const showproductlist = async() => {
   const query = `*[_type == "product"]{
     _id,
     title ,
