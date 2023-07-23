@@ -100,7 +100,7 @@ export default function ProductDtl({ product }: Iprop) {
               Add to Cart
             </button>
 
-            <p className="text-3xl font-bold tracking-wider">${product.price}:00</p>
+            <p className="text-3xl font-bold tracking-wider">${product.price}</p>
           </div>
         </div>
 

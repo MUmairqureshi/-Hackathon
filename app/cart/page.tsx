@@ -52,10 +52,13 @@ export default function Cart() {
           </p>
         </div>
         ) :
-          (<div className=" xl:gap-x-14 lg:gap-x-14  mt-6 justify-center  grid xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 grid-cols-2">
+          (
+          <div className=" main xl:gap-x-14 lg:gap-x-14  mt-6 justify-center  grid xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 grid-cols-2 ">
+            {/* xl:gap-x-14 lg:gap-x-14  mt-6 justify-center  grid xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 grid-cols-2 */}
+            <div className="md:col-span-3 col-span-2 lg:col-span-2 xl:col-span-2  w-full justify-start mb-12 flex-col gap-y-6">
             {cartItems.map((item: Icart) => (
-              <div className="md:col-span-3 col-span-2 lg:col-span-2 xl:col-span-2  w-full justify-start mb-12">
-                <div className="md:flex c   sm:flex gap-y-12  gap-x-8">
+
+                <div className="md:flex group mb-12   sm:flex gap-y-12  gap-x-8">
                   <div className="md:flex sm:flex lg:mb-0 md:mb-0 xl:mb-0 mb-10 gap-x-8">
                     <img
                       src={urlForImage(item?.images[0].asset).url()!}
@@ -99,10 +102,13 @@ export default function Cart() {
                     </div>
                   </div>
                 </div>
-              </div>
+
             ))}
-            <div className=" order order-first md:order-none sticky h-fit top-20 md:col-span-2 col-span-2 lg:col-span-1 xl:col-span-1 justify-center mx-auto w-full mx-auto  flex flex-col px-6 py-6  bg-gray-50  ">
-              <h3 className="text-start font-bold mb-6 text-lg">Order Summary</h3>
+              </div>
+
+            <div className="     md:order-none md:sticky md:top-40  md:h-fit md:col-span-2 col-span-2 lg:col-span-1 xl:col-span-1 justify-center mx-auto w-full mx-auto  flex flex-col px-6 py-6  bg-gray-50  ">
+
+              <h3 className="sticky top-0 text-start font-bold mb-6 text-lg">Order Summary</h3>
               <div className="flex   mb-7 justify-between">
                 <div className="  gap-x-2 justify-between">
                   <p className="mb-6">
