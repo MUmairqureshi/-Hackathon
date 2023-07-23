@@ -15,22 +15,23 @@ export function Uniquepro() {
                     <p className=" xl:text-8xl text-5xl 	mix-blend-multiply  text-gray-100 font-extrabold">Different from others</p>
                     <div className=" absolute flex flex-col">
                         <span>
-                            <p className="mb-4 font-bold text-lg md:text-xl lg:text-xl   xl:w-[16rem] lg:w-[18rem] w-[16rem] md:w-[20rem]  tracking-wide ">Using Good Quality Materials</p>
+                            <p className="mb-4 font-semibold text-xl md:text-xl lg:text-xl  
+                             xl:w-[16rem] lg:w-[18rem] w-[8rem] md:w-[20rem]  tracking-wide leading-5 ">Using Good Quality Materials</p>
                             <p className="mb-6  w-[8rem] md:w-[14rem] md:w-[14rem]  md:text-lg text-md"> Lorem ipsum dolor sit amt, consectetur adipiscing elit.</p>
                         </span>
                         <span>
-                            <p className="mb-4 font-bold text-lg md:text-xl lg:text-xl   xl:w-[14rem]  tracking-wide  ">Modern Fashion Design</p>
+                            <p className="mb-4 font-semibold text-xl w-[8rem] md:text-xl lg:text-xl   xl:w-[14rem]  tracking-wide leading-5  ">Modern Fashion Design</p>
                             <p className="mb-6   w-[8rem] md:w-[14rem]  md:text-lg text-md">Lorem ipsum dolor sit amt, consectetur adipiscing elit.</p>
                         </span>
                     </div>
 
                     <div className="flex flex-col mb-8">
                         <span>
-                            <p className=" mb-4 font-bold text-lg md:text-xl lg:text-xl   xl:w-[16rem]  tracking-wide ">100% Handmade Products</p>
+                            <p className=" mb-4 font-semibold text-xl md:text-xl lg:text-xl   xl:w-[16rem]  tracking-wide leading-5 ">100% Handmade Products</p>
                             <p className=" mb-6   w-[8rem] md:w-[14rem]  md:text-lg text-md ">Lorem ipsum dolor sit amt, consectetur adipiscing elit.</p>
                         </span>
                         <span>
-                            <p className="mb-4 font-bold text-lg md:text-xl lg:text-xl   xl:w-[14rem]  tracking-wide  ">Discount for Bulk Orders</p>
+                            <p className="mb-4 font-semibold text-xl md:text-xl lg:text-xl   xl:w-[14rem] leading-5  tracking-wide  ">Discount for Bulk Orders</p>
                             <p className=" mb-6   w-[8rem] md:w-[14rem]  md:text-lg text-md">Lorem ipsum dolor sit amt, consectetur adipiscing elit.</p>
                         </span>
                     </div>
