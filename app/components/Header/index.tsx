@@ -21,7 +21,9 @@ function Header() {
     <div className=" container   bg-white">
       <div className="  flex flex-wrap justify-between  mx-auto my-10 ">
         <div>
+          <Link href="/">
           <Image src={Logo} alt="Logo" />
+          </Link>
         </div>
         <div className="lg:flex  hidden">
           <Link href="/female" className="mx-5 text-lg font-medium">
@@ -54,7 +56,8 @@ function Header() {
             <div className="flex justify-center items-center mx-3">
               <FiShoppingCart size={25} />
             </div>
-            <div className="bg-red-500 rounded-full absolute w-6 right-[7rem] text-center top-9 h-6 px-2"><h1 className="text-white">
+            <div className="bg-red-500 rounded-full absolute w-6 right-[7rem] text-center top-9 h-6 ">
+              <h1 className="text-white">
               {totalQuantities}
             </h1></div>
           </div>
@@ -85,7 +88,8 @@ function Header() {
           <div className="flex justify-center items-center mx-   mx-auto">
             <FiShoppingCart className="my-3 mx-auto" size={25} />
           </div>
-          <div className="bg-red-500 rounded-full mx-auto text-center absolute   ml-[2rem] text-center mt-[-3rem] h-6 px-2"><h1 className="text-center text-white">
+          <div className="bg-red-500 rounded-full mx-auto text-center absolute   ml-[2rem] text-center mt-[-3rem] h-6 px-2">
+            <h1 className="text-center text-white">
             {totalQuantities}
           </h1></div>
         </div>

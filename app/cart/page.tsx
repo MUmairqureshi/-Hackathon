@@ -39,8 +39,6 @@ export default function Cart() {
     window.location.assign(data)
 
   }
-
-
   return (
 
 
@@ -103,7 +101,7 @@ export default function Cart() {
                 </div>
               </div>
             ))}
-            <div className=" md:col-span-2 col-span-2 lg:col-span-1 xl:col-span-1 justify-center mx-auto w-full mx-auto  flex flex-col px-6 py-6  bg-gray-50  ">
+            <div className=" order order-first md:order-none sticky h-fit top-20 md:col-span-2 col-span-2 lg:col-span-1 xl:col-span-1 justify-center mx-auto w-full mx-auto  flex flex-col px-6 py-6  bg-gray-50  ">
               <h3 className="text-start font-bold mb-6 text-lg">Order Summary</h3>
               <div className="flex   mb-7 justify-between">
                 <div className="  gap-x-2 justify-between">
@@ -115,8 +113,8 @@ export default function Cart() {
                 </div>
 
                 <div className="gap-x-2 justify-between">
-                  <p className="mb-6">{totalQuantities}</p>
-                  <p>   {totalPrice}</p>
+                  <p className="mb-6"> {totalQuantities}</p>
+                  <p> $  {totalPrice}</p>
                 </div>
               </div>
 

@@ -10,12 +10,14 @@ import { urlForImage } from "../../../sanity/lib/image";
  
 import { FiShoppingCart } from "react-icons/fi";
 import { useStateContext } from "../contextapi/useContext";
+import { useState } from "react";
  
 type Iprop = {
   product: IProduct
 }
 export default function ProductDtl({ product }: Iprop) {
-  const { qty, decQty, incQty, onAdd } = useStateContext();
+  const [qty , setQty] = useState(1)
+  const {  onAdd } = useStateContext();
  
   return (
     <div className=" ">
@@ -76,7 +78,7 @@ export default function ProductDtl({ product }: Iprop) {
                 className="w-12 h-12 flex items-center justify-center  bg-gray-200 shadow-2xl rounded-full cursor-pointer text-gray-800
         text-xl
         "
-                onClick={decQty}
+                onClick={() => setQty(qty > 1 ? qty - 1 : qty)}
               >
                 <AiOutlineMinus/>
 
@@ -85,7 +87,7 @@ export default function ProductDtl({ product }: Iprop) {
               <button
                 className="w-12 h-12 flex items-center justify-center  bg-gray-200 shadow-2xl rounded-full cursor-pointer text-gray-800
         text-xl border-black
-        "onClick={incQty}
+        "onClick={()=> setQty(qty + 1)}
               >
                 <AiOutlinePlus/>
                 

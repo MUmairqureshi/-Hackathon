@@ -7,7 +7,7 @@ import Link from "next/link";
 import { urlForImage } from "../../sanity/lib/image";
 
 export default async function  Product( ) {
-  const  productlist : IProduct[]= await showproductlist()
+  const  productlist : IProduct[] = await showproductlist()
 
    
   return (
