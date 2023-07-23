@@ -7,17 +7,16 @@ import Link from "next/link";
 import { urlForImage } from "../../sanity/lib/image";
 
 export default async function  Product( ) {
-  const { productlist} = await showproductlist()
+  const  productlist : IProduct[]= await showproductlist()
 
    
-console.log(productlist)
   return (
     <div className="flex justify-center mt-12 w-full">
  
        <div className="    sm:px-2 py-4 flex justify-center">
         <div className="grid  grid-cols-2 sm:grid-cols-1 xl:grid-cols-4 lg:grid-cols-3 md:mb-6 gap-x-4 md:gap-x-8">
 
-          {productlist.map((product :IProduct) => (
+          {productlist.map((product ) => (
             <div key={product._id} className=" ">
               <Link
                 key={product._id}
@@ -46,16 +45,15 @@ console.log(productlist)
   );
 }
 export const showproductlist = async() => {
-  const query = `*[type == "Female"]{
+  const query =  await client.fetch(`*[type == "Female"]{
     _id,
     title ,
     slug ,
     price ,
     category,
     images,  
-  }`;
-  const productlist    = await client.fetch(query);
-  return {
-    productlist,
-  };
+  }`);
+  return (
+    query
+  );
 };
