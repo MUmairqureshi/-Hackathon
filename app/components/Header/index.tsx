@@ -3,7 +3,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 import Logo from '../../../public/Logo.png'
 import Link from "next/link";
- import { RxCross2 } from "react-icons/Rx";
+ import { RxCross2 } from "react-icons/rx";
 import { AiOutlineSearch } from "react-icons/ai";
 import { RiMenu3Fill } from "react-icons/ri";
 
