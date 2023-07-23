@@ -32,7 +32,7 @@ function Header() {
           <Link href="/male" className="mx-5 text-lg font-medium">
             Male
           </Link>
-          <Link href={""} className="mx-5 text-lg font-medium">
+          <Link href="/kids" className="mx-5 text-lg font-medium">
             Kids
           </Link>
           <Link href="/product" className="mx-5 text-lg font-medium">
