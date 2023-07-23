@@ -43,7 +43,7 @@ export default async function Product() {
     </div>
   );
 }
-export const showproductlist = async () => {
+ const showproductlist = async () => {
   const query = await client.fetch(`*[type == "Male"]{
     _id,
     title ,
