@@ -27,7 +27,7 @@ export function Uniquepro() {
 
                     <div className="flex flex-col mb-8">
                         <span>
-                            <p className=" mb-4 font-semibold text-xl md:text-xl lg:text-xl   xl:w-[14rem]  tracking-wide    leading-5 ">100% Handmade Products</p>
+                            <p className=" mb-4 font-semibold text-xl md:text-xl lg:text-xl   xl:w-[12rem]  tracking-wide    leading-5 ">100% Handmade Products</p>
                             <p className=" mb-6   w-[8rem] md:w-[14rem]  md:text-lg text-md ">Lorem ipsum dolor sit amt, consectetur adipiscing elit.</p>
                         </span>
                         <span>
