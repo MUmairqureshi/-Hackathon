@@ -10,13 +10,38 @@ import Image from "next/image";
 import { urlForImage } from "../sanity/lib/image";
 import 'swiper/css';
 import 'swiper/css/navigation';
+import Select from "react-tailwindcss-select";
 
 import Hero from './components/Hero/index'
 import PromotionalCards from './components/PromotionalCards'
 import { Uniquepro } from "./components/uniqueproduct";
 // import Product from './components/Products'
 
-async function Home() {
+  
+const options = [
+  { value: "fox", label: "🦊 Fox" },
+  { value: "Butterfly", label: "🦋 Butterfly" },
+  { value: "Honeybee", label: "🐝 Honeybee" }
+];
+const tagOptions = [
+  { value: 'food', label: 'Food' },
+  { value: 'travel', label: 'Travel' },
+  { value: 'technology', label: 'Technology' },
+];
+interface TagSelectorProps {
+  selectedTags: { value: string; label: string }[];
+  onChange: (selectedOptions: { value: string; label: string }[]) => void;
+}
+async function Home: React.FC<TagSelectorProps> = ({ selectedTags, onChange }) => {
+  const handleChange = (selectedOptions: any) => {
+    onChange(selectedOptions);
+  };
+
+  const [animal, setAnimal] = useState(null);
+  const handleChange =( value : any )=> {
+    console.log("value:", value);
+    setAnimal(value);
+};
   const { productlist} = await showproductlist()
 console.log(productlist)
 const slides = Array.from({ length: 1000 }).map(
@@ -24,10 +49,28 @@ const slides = Array.from({ length: 1000 }).map(
 );
   return (
     <div>
- <Hero/>
+      <h1>Hello</h1>
+    
+ {/* <Hero/>
  <PromotionalCards/>
- <Uniquepro/>
-
+ <Uniquepro/> */}
+   <Select
+            value={animal}
+            onChange={handleChange}
+            options={options}
+            formatOptionLabel={data => (
+                <li
+                    className={`block transition duration-200 px-2 py-2 cursor-pointer select-none truncate rounded ${
+                        !data.isSelected
+                            ? `text-white bg-blue-500`
+                            : `bg-blue-100 text-blue-500`
+                    }`}
+                >
+                    
+                    {data.label}
+                </li>
+                 )}
+        />
     </div>
   )
 }
